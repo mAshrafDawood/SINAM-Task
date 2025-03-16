@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Type Faster!
+Type Faster! is a keyboard typing trainer generating a set of random words using a JSON file called `words.json`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Stack used
+1. ReactJS
+2. tailwind
+3. lucid-react
 
-## Available Scripts
+For this project I opted for single application using ReactJS instead of two applications (front-end and back-end) as There was no real need for a database and server side persistance, using only the client-side's browser local storage was just fine also using a single page application seemed optimal for this usecase. Tailwind for easier and faster CSS styling. And fincally lucid-react for the home icon used in the project instead of font-awesome or w3 SVGs.
 
-In the project directory, you can run:
 
-### `npm start`
+## Running the application
+#### 1.Node & npm
+The version of node and npm running must be able to support ReactJS v19 as this app is based on it
+#### 2. Devlopment Environment
+All you need is run this following commands in the root directory of the project
+ - `npm install`
+ - `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+as simple as that
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### 3. Deployment Environment
+You can use the `Dockerfile` provided with this app and `nginx.conf` to run this app basically anywhere, just use the following commands in the project's root directory
+ - `docker build -t my-container .` (change my-container to your container name)
+ - `docker run -p 80:80 -d --name my-image my-container` (change my-image to your image name as well as my-container to the container's name you used earlier)
+ And you have your image running and serving the application on port 80
 
-### `npm test`
+ ## Room for improvment
+ There is always room for improvement so this is a list of features/bugs to be later addressed if needed
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ #### 1. Words reset on game start
+ As soon as the game starts with any `word's count > 1` the word list would reset (this is not inteded behaviour)
 
-### `npm run build`
+ #### 2. Responsive design issues
+ User interface might break for certain small devices if certain conditions meet, such as too many characters display
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ #### 3. Update the words per minute state live
+ Currently WPM is only calculated at the end of the game, It can be calculated live through the whole game
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ #### 4. Add more modes for a more fun exprience
+ Can add a few more modes as the following
+ 1. Story mode: Write a random paragraph from a book or a novel
+ 2. Songs mode: Write a verse from a known song
+ 3. Quotes & Idioms: Write famous quotes or idioms
+ 4. Scientific facts: Learn new facts (fun or not) while improving your typing skills
+ 5. Time based: Instead of the word count based or sentence based modes a mode where you are limited by the time
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 5. Account for mistakes
+Currently if a wrong character is inputed it is ignored, it can be highlighted and displayed in way to give a better user exprience also more statistics and insights to be stored and displayed (ex. Accuracy percentage and Consistency)
 
-### `npm run eject`
+#### 6. Word rules
+Add rules to allow or disallow a specific set of characters (ex. punctuation and numbers)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### 7. Add custom word set
+Add an input field for the user to add their own custom word set and store them to be used at any given time
