@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SINAM-Task/static/css/main.b23d14eb.css",
+    "main.js": "/SINAM-Task/static/js/main.5fd2d02e.js",
+    "static/js/453.1da39014.chunk.js": "/SINAM-Task/static/js/453.1da39014.chunk.js",
+    "index.html": "/SINAM-Task/index.html",
+    "main.b23d14eb.css.map": "/SINAM-Task/static/css/main.b23d14eb.css.map",
+    "main.5fd2d02e.js.map": "/SINAM-Task/static/js/main.5fd2d02e.js.map",
+    "453.1da39014.chunk.js.map": "/SINAM-Task/static/js/453.1da39014.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b23d14eb.css",
+    "static/js/main.5fd2d02e.js"
+  ]
+}
